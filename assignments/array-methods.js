@@ -93,6 +93,47 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+/** sort the runners by their donations in decending order */
+const sortedRunners = runners.sort((a, b) => {
+  return b.donation - a.donation;
+})
+
+console.log(sortedRunners)
+
+//get the runner with the highest donation
+console.log(`The runner with the highest donation is ${sortedRunners[0].first_name} with a donation of ${sortedRunners[0].donation}`)
+
+//get the runner with the lowest donation
+console.log(`The runner with the lowest donation is ${sortedRunners.pop().first_name} with a donation of ${sortedRunners.pop().donation}`)
+
 // Problem 2
+// return the runners with  a minimum of  100 donations
+const runnersWithMinimumDonations = runners.filter((runner) => {
+  return runner.donation >= 100;
+})
+
+console.log(runnersWithMinimumDonations)
 
 // Problem 3
+// get the excess amount from the target amount of 5k
+
+const excessDonation = (runners.reduce((sum, currentRunner) => {
+  sum = sum + currentRunner.donation;
+  return sum;
+}, 0) - 5000);
+
+console.log(`The excess donation is ${excessDonation.toLocaleString()}`)
+
+const xlargeShirtSize = runners.filter((item) => {
+  if (item.shirt_size.includes('XL')) {
+    return true;
+  }
+})
+console.log(xlargeShirtSize)
+
+//Return names of donors and their shirt sizes
+const donorsShirtSize = runners.map(runner => {
+  return `${runner.first_name} || ${runner.shirt_size}`
+})
+
+console.log(donorsShirtSize)

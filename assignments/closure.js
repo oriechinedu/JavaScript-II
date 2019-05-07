@@ -1,6 +1,25 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+const compareArrayLengths = (arr) => {
+  return () => {
+    const closureArr = [1, 2, 3, 4]
+    if (arr.length > closureArr.length) {
+      console.log('The outer array length is greater than the inner array length')
+    } else if (arr.length === closureArr.length) {
+      console.log('The outer array length is equal to the inner array length')
+    }
+    else {
+      console.log('The outer array length is less than the inner array length')
+    }
+  }
+}
+
+const X = compareArrayLengths([1, 2, 3, 4])
+
+console.log(X)  //returns Function
+
+X() // returns 'The outer array length is equal to the inner array length'
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
